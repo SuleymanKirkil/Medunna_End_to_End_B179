@@ -9,6 +9,8 @@ import utils.Driver;
 import utils.ReusableMethods;
 
 public class RoomCreationStepDefinitions {
+    public  static int roomNumber;
+    public  static String roomIdStr;
     MedunnaRoomPage roomPage = new MedunnaRoomPage();
     MedunnaHomePage homePage = new MedunnaHomePage();
     MedunnaLoginPage loginPage = new MedunnaLoginPage();
@@ -28,7 +30,7 @@ public class RoomCreationStepDefinitions {
     }
     @When("enter room number into Room Number field")
     public void enter_room_number_into_room_number_field() {
-        int roomNumber = Faker.instance().number().numberBetween(10000,100000);
+        roomNumber = Faker.instance().number().numberBetween(10000,100000);
         roomPage.roomNumberInput.sendKeys(roomNumber + "");
     }
     @When("select SUITE option from room type dropdown")
@@ -55,7 +57,7 @@ public class RoomCreationStepDefinitions {
     public void click_save_submit_button() {
         ReusableMethods.click(roomPage.saveSubmitButton);
         ReusableMethods.visibleWait(roomPage.alert,5);
-        String roomIdStr = roomPage.alert.getText().replaceAll("[^0-9]","");
+        roomIdStr = roomPage.alert.getText().replaceAll("[^0-9]","");
         System.out.println(roomIdStr);
     }
 }
