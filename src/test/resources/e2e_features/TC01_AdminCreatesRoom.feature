@@ -21,7 +21,7 @@ Feature: Admin Creates Room
 
     Examples:
     | price | description   |
-    | 210   | Batch 179     |
+    | 210   | Batch 179    |
 
 
 

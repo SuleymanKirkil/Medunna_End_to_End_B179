@@ -11,6 +11,8 @@ import utils.ReusableMethods;
 public class RoomCreationStepDefinitions {
     public  static int roomNumber;
     public  static String roomIdStr;
+    public  static String roomPrice;
+    public  static String roomDescription;
     MedunnaRoomPage roomPage = new MedunnaRoomPage();
     MedunnaHomePage homePage = new MedunnaHomePage();
     MedunnaLoginPage loginPage = new MedunnaLoginPage();
@@ -45,11 +47,13 @@ public class RoomCreationStepDefinitions {
 
     @And("enter {string} into Price field")
     public void enterIntoPriceField(String price) {
+        roomPrice = price;
         roomPage.priceInput.sendKeys(price);
     }
 
     @And("enter {string} into Description field")
     public void enterIntoDescriptionField(String description) {
+        roomDescription = description;
         roomPage.descriptionInput.sendKeys(description);
     }
 
